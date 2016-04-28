@@ -1,0 +1,42 @@
+<template name="list_coffees">
+
+<div class="well">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>List All Coffees</h1>
+            {{# if currentUser}}
+            <br>
+            <table class="table">
+                {{#each Coffees}}
+                    <tr>
+                        {{# if coffeeFavourite}}
+                        <td><span class="glyphicon glyphicon-star fa-2x" style="color: #3399ff"></span></td>
+                        {{else}}
+                            <td><span class="glyphicon glyphicon-star fa-2x"></span></td>
+                        {{/if}}
+                        <td>{{coffeeRating}}</td>
+                        <td>{{coffeeName}}</td>
+                        <td>{{coffeeShop}}</td>
+                        <td><span class="glyphicon glyphicon-euro"> {{coffeePrice}}</span></td>
+                        <td><a href="/list_coffees/{{_id}}/edit_coffee" class="glyphicon glyphicon-edit">Edit</a></td>
+                            <td><button class="glyphicon glyphicon-remove delete_coffee">Delete</button>
+                        </td>
+                    </tr>
+                {{else}}
+                    <tr>
+                        <td>No Coffees in list yet...</td>
+                    </tr>
+                {{/each}}
+            </table>
+            {{else}}
+
+                <h3>Please sign in to view coffees..</h3>
+
+                {{/if}}
+        </div>
+    </div>
+</div>
+
+
+
+</template>

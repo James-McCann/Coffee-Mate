@@ -1,0 +1,46 @@
+<template name="edit_coffee">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Edit Coffee: <small>{{coffeeName}}</small></h2>
+            <form class="edit_coffee_form" enctype="multipart/form-data">
+
+
+                {{# if coffeeFavourite}}
+
+                    <td><span class="glyphicon glyphicon-star fa-5x" style="color: #3399ff"></span></td>
+
+                {{else}}
+                    <td><span class="glyphicon glyphicon-star fa-5x"></span></td>
+
+                {{/if}}
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="coffeeName" name="coffeeName" value="{{coffeeName}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" class="form-control" id="coffeeShop" name="coffeeShop" value="{{coffeeShop}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" step="any" class="form-control" id="coffeePrice" name="coffeePrice" value="{{coffeePrice}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Rating</label>
+
+                    {{> starsRating id='rating' class='mystar' size='lg' mutable=true rating=coffeeRating }}
+                </div>
+                <!--<div class="map-container">-->
+                    <!--{{> googleMap name="map" options=mapOptions }}-->
+                <!--</div>-->
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="/list_coffees" class="btn btn-default">Go Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>
